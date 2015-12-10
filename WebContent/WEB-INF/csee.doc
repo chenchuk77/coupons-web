@@ -1,0 +1,76 @@
+==========================================================
+/rest/customer api :
+	/whoami									(GET/JSON) [returns JSON...]
+	/login/{username}/{password}			(GET/JSON)
+	/logout									(GET/JSON)
+	/purchaseCoupon 						(POST/JSON)
+	/getAllPurchasedCoupons					(GET/JSON)
+	/getAllPurchasedCoupons/type/{type}		(GET/JSON)
+	/getAllPurchasedCoupons/price/{price}	(GET/JSON)
+	/getAllAvailableCoupons					(GET/JSON)
+	/getAllAvailableCoupons/type/{type}		(GET/JSON)
+	/getAllAvailableCoupons/price/{price}	(GET/JSON)
+==========================================================
+/rest/company api :
+	/whoami									(GET/JSON)
+	/login/{username}/{password}			(GET/JSON)
+	/logout									(GET/JSON)
+	/createCoupon 							(POST/JSON)
+	/removeCoupon							(DELETE/JSON)
+	/updateCoupon							(PUT/JSON)
+	/getCoupon/{id}							(GET/JSON)
+	/getAllCoupons							(GET/JSON)
+	/getAllCoupons/type/{type}				(GET/JSON)
+==========================================================
+/rest/admin api :
+	/whoami									(GET/JSON)
+	/login/{username}/{password}			(GET/JSON)
+	/logout									(GET/JSON)
+	/createCompany							(POST/JSON)
+	/removeCompany							(DELETE/JSON)
+	/updateCompany							(PUT/JSON)
+	/getCompany/{id}						(GET/JSON)
+	/getAllCompanies						(GET/JSON)
+	/createCustomer							(POST/JSON)
+	/removeCustomer							(DELETE/JSON)
+	/updateCustomer							(PUT/JSON)
+	/getCustomer/{id}						(GET/JSON)
+	/getAllCustomers						(GET/JSON)
+	/getConfig								(GET/JSON)
+==========================================================
+/rest/manage api :
+	/resetPool								(GET/PLAIN)
+* helper method to reset the connection pool. no need to login
+this specific URL is allowed to bypass the filter.
+==========================================================
+==========================================================
+==========================================================
+
+EXAMPLES :
+==========================================================
+GET
+http://localhost:8080/csEE2/rest/company/login/Castro/1234
+==========================================================
+POST
+http://localhost:8080/csEE2/rest/company/createCoupon
+body :
+{
+	"message": "msg2",
+	"type": "ELECTRICITY",
+	"endDate": "2050-01-01",
+	"amount": 100,
+	"startDate": "2015-01-01",
+	"price": 200,
+	"image": "img2",
+	"title": "cpn2"
+}
+==========================================================
+POST
+http://localhost:8080/csEE2/rest/admin/createCompany
+body :
+{
+	"password": "1234",
+	"email": "bestcomp@gmail.com",
+	"compName": "Best-Comp"
+}
+==========================================================
